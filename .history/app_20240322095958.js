@@ -2,10 +2,10 @@
 const express = require('express');
 const login = require('../nodejs-bcakend/modle/login')
 var cors = require('cors');
-
+app.use(cors());
 // 创建 express 应用
 const app = express();
-app.use(cors());
+
 // 定义一个简单的 GET 路由路径
 app.get('/', (req, res) => {
   console.log("receive message")
