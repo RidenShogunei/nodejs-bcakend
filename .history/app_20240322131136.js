@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/diary', diaryRouter);
+app.use('/submit', diaryRouter);
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
