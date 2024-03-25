@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql');
+
 const app = express();
 
 const conn = mysql.createConnection({
@@ -19,9 +20,7 @@ conn.connect(err => {
 
     // 连接成功后导入 diary 路由
     const diaryRouter = require('./modle/diary')(conn);
-    const personalRouter = require('./modle/personal')(conn);
     app.use('/diary', diaryRouter);
-    app.use('personal',personalRouter);
   }
 });
 
