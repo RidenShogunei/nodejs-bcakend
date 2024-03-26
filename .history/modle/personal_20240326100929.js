@@ -7,7 +7,7 @@ module.exports = function (conn) {
       console.log("Data received!");
       console.log(req.body);
       let title = req.body.mytitle; // 新增
-      let content = req.body.data;
+      let content = req.body.content;
       let time = req.body.time;
       let sqlStr = `INSERT INTO personal (title, content, time) VALUES('${title}', '${content}', '${time}')`; // 修改表名和字段名
       conn.query(sqlStr, (err) => {

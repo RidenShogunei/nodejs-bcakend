@@ -21,7 +21,7 @@ conn.connect(err => {
     const diaryRouter = require('./modle/diary')(conn);
     const personalRouter = require('./modle/personal')(conn);
     app.use('/diary', diaryRouter);
-    app.use('/person',personalRouter);
+    app.use('person',personalRouter);
   }
 });
 

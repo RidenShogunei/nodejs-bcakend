@@ -5,9 +5,9 @@ const mysql = require('mysql');
 const app = express();
 
 const conn = mysql.createConnection({
-  user:'root',          //用户名
-  password:'Chen2003',  //密码
-  host:'localhost',     //主机（默认都是local host）
+  user:'blog',          //用户名
+  password:'chen2003',  //密码
+  host:'47.96.160.149',     //主机（默认都是local host）
   database:'mydesk'     //数据库名
 });
 
@@ -21,7 +21,7 @@ conn.connect(err => {
     const diaryRouter = require('./modle/diary')(conn);
     const personalRouter = require('./modle/personal')(conn);
     app.use('/diary', diaryRouter);
-    app.use('/person',personalRouter);
+    app.use('person',personalRouter);
   }
 });
 
