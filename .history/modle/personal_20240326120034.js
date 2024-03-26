@@ -10,7 +10,7 @@ module.exports = function (conn) {
         let content = req.body.data;
         let time = req.body.time;
         let show = req.body.showornot;
-        let sqlStr = `INSERT INTO personal (title, content, time,showornot) VALUES('${title}', '${content}', '${time}',${show})`; // 修改表名和字段名
+        let sqlStr = `INSERT INTO personal (title, content, time,show) VALUES('${title}', '${content}', '${time}',${show})`; // 修改表名和字段名
         conn.query(sqlStr, (err) => {
             if (err) {
                 console.error("插入失败：", err);
@@ -28,13 +28,8 @@ module.exports = function (conn) {
         let title = req.body.title; // 新增
         let content = req.body.content;
         let time = req.body.time;
-        let show=req.body.showornot;
         let sqlStr; // 在这里定义sqlStr
-        if(show===""){
-        sqlStr = `SELECT * FROM personal`;}
-    else{
-        sqlStr = `SELECT * FROM personal where showornot="1"`;}
-        /*if (title === "" && content === "" && time === "") { // 新增title的判断
+        if (title === "" && content === "" && time === "") { // 新增title的判断
             sqlStr = `SELECT * FROM personal`;
         } else if (content === "" && time === "") {
             sqlStr = `SELECT * FROM personal where title LIKE '%${title}%'`;
@@ -58,7 +53,7 @@ module.exports = function (conn) {
             time = moment(time).tz('Asia/Shanghai').format();
             time = time.substring(0, 10); // "2024-03-11"
             sqlStr = `SELECT * FROM personal WHERE time = '${time}' AND title LIKE '%${title}%' AND content LIKE '%${content}%'`;
-        }*/
+        }
 
         conn.query(sqlStr, (err, results) => {
             if (err) {

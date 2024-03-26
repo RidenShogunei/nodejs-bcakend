@@ -30,7 +30,7 @@ module.exports = function (conn) {
         let time = req.body.time;
         let show=req.body.showornot;
         let sqlStr; // 在这里定义sqlStr
-        if(show===""){
+        if(showornot===""){
         sqlStr = `SELECT * FROM personal`;}
     else{
         sqlStr = `SELECT * FROM personal where showornot="1"`;}
