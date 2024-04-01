@@ -5,10 +5,10 @@ const mysql = require('mysql');
 const app = express();
 
 const conn = mysql.createConnection({
-  user:'blog',          //用户名
-  password:'chen2003',  //密码
-  host:'47.96.160.149',     //主机（默认都是local host）
-  database:'mydesk'     //数据库名
+  user:'',          //用户名
+  password:'',  //密码
+  host:'',     //主机（默认都是local host）
+  database:''     //数据库名
 });
 app.use(cors());
 app.use(bodyParser.json());
